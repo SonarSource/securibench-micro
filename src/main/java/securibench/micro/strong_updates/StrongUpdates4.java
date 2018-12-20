@@ -21,7 +21,7 @@
  */
 package securibench.micro.strong_updates;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -45,7 +45,7 @@ public class StrongUpdates4 extends BasicTestCase implements MicroTestCase {
         name = req.getParameter(FIELD_NAME);
         name = "abc";
 
-        new File(name);              /* BAD */
+        Paths.get(name);              /* BAD */
     }
 
     public String getDescription() {

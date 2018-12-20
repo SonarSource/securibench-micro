@@ -21,7 +21,7 @@
  */
 package securibench.micro.inter;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +43,7 @@ public class Inter7 extends BasicTestCase implements MicroTestCase {
             foo();
         }
         private void foo() {
-            new File(this.value);             /* BAD */
+            Paths.get(this.value);             /* BAD */
         }
         public String toString() {
             return value;

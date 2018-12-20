@@ -21,7 +21,7 @@
  */
 package securibench.micro.inter;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -44,8 +44,8 @@ public class Inter11 extends BasicTestCase implements MicroTestCase {
         String s2 = id(foo(s1));
         String s3 = id(foo("abc"));
 
-        new File(s2);                    /* BAD */
-        new File(s3);                    /* OK */
+        Paths.get(s2);                    /* BAD */
+        Paths.get(s3);                    /* OK */
     }
     
     private String id(String string) {

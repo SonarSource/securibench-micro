@@ -21,7 +21,7 @@
  */
 package securibench.micro.pred;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +42,7 @@ public class Pred5 extends BasicTestCase implements MicroTestCase {
         String name = req.getParameter(FIELD_NAME);
         
         if ( ((x > 5) && (x % 7 == 29) ) || (x == 3) ) {    // should always be taken
-            new File(name);              /* BAD */     
+            Paths.get(name);              /* BAD */
         }
     }
 

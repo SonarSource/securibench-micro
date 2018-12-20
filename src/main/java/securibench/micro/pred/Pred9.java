@@ -21,7 +21,7 @@
  */
 package securibench.micro.pred;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -41,7 +41,7 @@ public class Pred9 extends BasicTestCase implements MicroTestCase {
         String array[] = new String[] {name, "abc"};
         
         if(array[1].equals(name)) {
-            new File(name);              /* BAD */     // could be equal
+            Paths.get(name);              /* BAD */     // could be equal
         }
     }
 

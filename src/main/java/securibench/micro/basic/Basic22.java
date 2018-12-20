@@ -41,7 +41,7 @@ public class Basic22 extends BasicTestCase implements MicroTestCase {
 
         // this is not a problem just yet: it's perhaps okay to create a file file 
         // a tained filename, but not use it in any way
-        File f = new File(name);                       
+        File f = new File(name);
         // this is definitely bad; an error should be flagged either on this or the 
         // previous line
         f.createNewFile();                              /* BAD */

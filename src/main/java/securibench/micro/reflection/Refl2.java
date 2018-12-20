@@ -21,7 +21,7 @@
  */
 package securibench.micro.reflection;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Field;
@@ -53,7 +53,7 @@ public class Refl2 extends BasicTestCase implements MicroTestCase {
         Field field = Class.forName("securibench.micro.reflection.Refl2").getField("name"); 
         String myName = (String) field.get(this); 
         
-        new File(myName);         /* BAD */        
+        Paths.get(myName);         /* BAD */
     }
 
     public String getDescription() {

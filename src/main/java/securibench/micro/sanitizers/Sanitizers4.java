@@ -21,7 +21,7 @@
  */
 package securibench.micro.sanitizers;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -42,8 +42,8 @@ public class Sanitizers4 extends BasicTestCase implements MicroTestCase {
 
         resp.setContentType("text/html");
         
-        new File("<html>" + name  + "</html>");                  /* BAD */
-        new File("<html>" + clean + "</html>");                  /* BAD */        
+        Paths.get("<html>" + name  + "</html>");                  /* BAD */
+        Paths.get("<html>" + clean + "</html>");                  /* BAD */
     }
     
     /** 

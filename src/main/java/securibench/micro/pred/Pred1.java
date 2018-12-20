@@ -21,7 +21,7 @@
 */
 package securibench.micro.pred;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +39,7 @@ public class Pred1 extends BasicTestCase implements MicroTestCase {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String name = req.getParameter(FIELD_NAME);
         if(false) {
-            new File(name);              					/* OK */
+            Paths.get(name);              					/* OK */
         }
     }
 

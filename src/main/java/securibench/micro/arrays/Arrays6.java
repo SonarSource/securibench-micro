@@ -21,7 +21,7 @@
  */
 package securibench.micro.arrays;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -41,7 +41,7 @@ public class Arrays6 extends BasicTestCase implements MicroTestCase {
         array[0] = "abc";
         array[0] = name;        
 
-        new File(array[0]);         /* BAD */
+        Paths.get(array[0]);         /* BAD */
     }
     
     public String getDescription() {

@@ -21,7 +21,7 @@
  */
 package securibench.micro.inter;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -41,12 +41,12 @@ public class Inter2 extends BasicTestCase implements MicroTestCase {
 
         String s2 = id(s1);
         String s3 = id("abc");
-        new File(s2);         /* BAD */   // Is this double-reporting?..
-        new File(s3);         /* OK */
+        Paths.get(s2);         /* BAD */   // Is this double-reporting?..
+        Paths.get(s3);         /* OK */
     }
     
     private String id(String string) {
-        new File(string); /* BAD */
+        Paths.get(string); /* BAD */
         
         return string;
     }

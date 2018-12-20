@@ -20,7 +20,7 @@
  */
 package securibench.micro.basic;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
@@ -40,7 +40,7 @@ public class Basic39 extends BasicTestCase implements MicroTestCase {
         String name = req.getParameter(FIELD_NAME);
         StringTokenizer tok = new StringTokenizer(name, "\t");
         while(tok.hasMoreElements()) {      
-            new File(tok.nextElement().toString());              /* BAD */    
+            Paths.get(tok.nextElement().toString());              /* BAD */
         }
     }
 

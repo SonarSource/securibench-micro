@@ -21,7 +21,7 @@
  */
 package securibench.micro.factories;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -51,8 +51,8 @@ public class Factories3 extends BasicTestCase implements MicroTestCase {
         StringWrapper w1 = new StringWrapper(s1);
         StringWrapper w2 = new StringWrapper("abc");
 
-        new File(w1.toString());    /* BAD */
-        new File(w2.toString());    /* OK */
+        Paths.get(w1.toString());    /* BAD */
+        Paths.get(w2.toString());    /* OK */
     }
     
     public String getDescription() {

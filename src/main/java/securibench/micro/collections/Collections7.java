@@ -20,7 +20,7 @@
  */
 package securibench.micro.collections;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -46,8 +46,8 @@ public class Collections7 extends BasicTestCase implements MicroTestCase {
         for(Iterator iter = m.entrySet().iterator(); iter.hasNext();) {
             Map.Entry<String, String> e = (Entry) iter.next();
 
-            new File(e.getKey());                         /* OK */
-            new File(e.getValue());                       /* BAD */
+            Paths.get(e.getKey());                         /* OK */
+            Paths.get(e.getValue());                       /* BAD */
         }
     }
     

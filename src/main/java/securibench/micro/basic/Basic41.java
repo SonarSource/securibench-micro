@@ -20,7 +20,7 @@
  */
 package securibench.micro.basic;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +35,7 @@ import securibench.micro.MicroTestCase;
 public class Basic41 extends BasicTestCase implements MicroTestCase {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {        
         String s = getServletConfig().getServletContext().getInitParameter("name");
-        new File(s);           						/* BAD */
+        Paths.get(s);           						/* BAD */
     }
     
     public String getDescription() {

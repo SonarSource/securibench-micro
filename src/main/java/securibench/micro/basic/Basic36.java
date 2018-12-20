@@ -20,7 +20,7 @@
  */
 package securibench.micro.basic;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -41,7 +41,7 @@ public class Basic36 extends BasicTestCase implements MicroTestCase {
         BufferedReader r = new BufferedReader(new InputStreamReader(in));
         String line = r.readLine();
       
-        new File(line);              /* BAD */
+        Paths.get(line);              /* BAD */
     }
 
     public String getDescription() {

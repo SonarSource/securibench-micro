@@ -21,7 +21,7 @@
  */
 package securibench.micro.reflection;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
@@ -55,7 +55,7 @@ public class Refl1 extends BasicTestCase implements MicroTestCase {
             // a fancy way to call id(s1, writer)
             Object o = idMethod.invoke(this, new Object[] {s1});
             String s2 = (String) o;
-            new File(s2);         /* BAD */ 
+            Paths.get(s2);         /* BAD */
         } catch( ClassNotFoundException e ) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {

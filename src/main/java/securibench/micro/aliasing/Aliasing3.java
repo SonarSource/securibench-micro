@@ -19,7 +19,7 @@
  */
 package securibench.micro.aliasing;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -43,7 +43,7 @@ public class Aliasing3 extends BasicTestCase implements MicroTestCase {
        a[5] = name;
        name = str;
 
-       new File(str);                              /* BAD */
+       Paths.get(str);                              /* BAD */
     }
     
     public String getDescription() {

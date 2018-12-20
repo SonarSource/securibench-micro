@@ -21,7 +21,7 @@
  */
 package securibench.micro.inter;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -82,16 +82,16 @@ public class Inter3 extends BasicTestCase implements MicroTestCase {
 
     // reachable code
     private void f9(String name) {
-        new File(name);       /* BAD */ 
+        Paths.get(name);       /* BAD */
     }
     
     // dead code
     public void f0(String name) {
-        new File(name);       /* OK */        
+        Paths.get(name);       /* OK */
     }
 
     public String id(String string, PrintWriter writer) {
-        new File(string);     /* OK */
+        Paths.get(string);     /* OK */
         
         return string;
     }

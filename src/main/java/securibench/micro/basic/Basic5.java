@@ -20,7 +20,7 @@
  */
 package securibench.micro.basic;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -40,9 +40,9 @@ public class Basic5 extends BasicTestCase implements MicroTestCase {
         String s4 = s3.replace(';', '.');
         String s5 = s4.trim();
 
-        new File(s3);    /* BAD */
-        new File(s4);    /* BAD */
-        new File(s5);    /* BAD */
+        Paths.get(s3);    /* BAD */
+        Paths.get(s4);    /* BAD */
+        Paths.get(s5);    /* BAD */
     }
     
     public String getDescription() {
