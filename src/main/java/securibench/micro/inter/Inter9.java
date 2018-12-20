@@ -21,7 +21,7 @@
  */
 package securibench.micro.inter;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
@@ -44,14 +44,14 @@ public class Inter9 extends BasicTestCase implements MicroTestCase {
         String s2 = foo(s1);
         String s3 = foo("abc");
  
-        new File(s2);                    /* BAD */
-        new File(s3);                    /* OK */
+        Paths.get(s2);                    /* BAD */
+        Paths.get(s3);                    /* OK */
         
         String s4 = bar(s1);
         String s5 = bar("abc");
         
-        new File(s4);                    /* BAD */
-        new File(s5);                    /* OK */
+        Paths.get(s4);                    /* BAD */
+        Paths.get(s5);                    /* OK */
     }
     
     private String foo(String s1) {

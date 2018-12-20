@@ -21,7 +21,7 @@
  */
 package securibench.micro.datastructures;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -56,8 +56,8 @@ public class Datastructures2 extends BasicTestCase implements MicroTestCase {
        String str1 = c1.getData();
        String str2 = c2.getData();
 
-       new File(str1);                              /* OK */
-       new File(str2);                              /* BAD */
+       Paths.get(str1);                              /* OK */
+       Paths.get(str2);                              /* BAD */
     }
     
     public String getDescription() {

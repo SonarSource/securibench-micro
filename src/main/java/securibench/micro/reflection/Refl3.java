@@ -21,7 +21,7 @@
  */
 package securibench.micro.reflection;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Field;
@@ -51,7 +51,7 @@ public class Refl3 extends BasicTestCase implements MicroTestCase {
             Field field = clazz.getField("value");
             field.set(rc, name);
             
-            new File(rc.value);               /* BAD */
+            Paths.get(rc.value);               /* BAD */
         } catch (ClassNotFoundException e) {
             System.err.println("An error occurred (1)");
         } catch (InstantiationException e) {

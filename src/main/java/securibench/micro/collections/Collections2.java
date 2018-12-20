@@ -20,7 +20,7 @@
  */
 package securibench.micro.collections;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
@@ -47,8 +47,8 @@ public class Collections2 extends BasicTestCase implements MicroTestCase {
         String s2 = (String) ll1.getLast();
         String s3 = (String) ll2.getLast();
 
-        new File(s2);                    /* BAD */
-        new File(s3);                    /* OK */
+        Paths.get(s2);                    /* BAD */
+        Paths.get(s3);                    /* OK */
     }
     
     public String getDescription() {

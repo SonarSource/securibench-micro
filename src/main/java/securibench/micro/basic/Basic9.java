@@ -20,7 +20,7 @@
  */
 package securibench.micro.basic;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
@@ -44,7 +44,7 @@ public class Basic9 extends BasicTestCase implements MicroTestCase {
         String s5 = choice ? s3 : s2;
         String s6 = s5;
 
-        new File(s6);    /* BAD */
+        Paths.get(s6);    /* BAD */
     }
     
     public String getDescription() {

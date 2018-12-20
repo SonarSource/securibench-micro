@@ -20,7 +20,7 @@
  */
 package securibench.micro.basic;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
@@ -40,7 +40,7 @@ public class Basic25 extends BasicTestCase implements MicroTestCase {
        String[] s = req.getParameterValues(FIELD_NAME);
        String name = s[0].toLowerCase(Locale.UK);
 
-       new File(name);                    /* BAD */
+       Paths.get(name);                    /* BAD */
     }
     
     public String getDescription() {

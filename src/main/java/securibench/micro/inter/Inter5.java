@@ -21,7 +21,7 @@
  */
 package securibench.micro.inter;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -42,8 +42,8 @@ public class Inter5 extends BasicTestCase implements MicroTestCase {
         String s1 = id(name);
         String s2 = id("abc");
 
-        new File(s1);         /* BAD */
-        new File(s2);         /* OK */
+        Paths.get(s1);         /* BAD */
+        Paths.get(s2);         /* OK */
     }
     
     private String id(String in) throws IOException {

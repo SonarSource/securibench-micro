@@ -20,7 +20,7 @@
  */
 package securibench.micro.basic;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
@@ -43,7 +43,7 @@ public class Basic26 extends BasicTestCase implements MicroTestCase {
        for(Iterator iter = m.entrySet().iterator(); iter.hasNext();) {
            Map.Entry<String, String> e = (Entry) iter.next();
            if(e.getKey().equals(FIELD_NAME)) {
-               new File(e.getValue());        
+               Paths.get(e.getValue());
            }           
        }
     }

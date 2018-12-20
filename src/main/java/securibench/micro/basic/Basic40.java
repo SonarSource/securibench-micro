@@ -20,7 +20,7 @@
  */
 package securibench.micro.basic;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -41,7 +41,7 @@ public class Basic40 extends BasicTestCase implements MicroTestCase {
         MultipartRequest mreq = new MultipartRequest(req, System.getenv("HOME"));
         String name = mreq.getParameter(FIELD_NAME);
         
-        new File(name);									/* BAD */
+        Paths.get(name);									/* BAD */
     }
     
 

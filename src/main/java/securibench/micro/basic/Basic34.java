@@ -20,7 +20,7 @@
  */
 package securibench.micro.basic;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -42,8 +42,8 @@ public class Basic34 extends BasicTestCase implements MicroTestCase {
 
             // I believe arbitrary header names can be forged
             // TODO: double-check this
-            new File(headerName);                       /* BAD */
-            new File(headerValue);                      /* BAD */
+            Paths.get(headerName);                       /* BAD */
+            Paths.get(headerValue);                      /* BAD */
         }        
     }
 

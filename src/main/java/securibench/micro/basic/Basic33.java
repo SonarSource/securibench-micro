@@ -20,7 +20,7 @@
  */
 package securibench.micro.basic;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -39,7 +39,7 @@ public class Basic33 extends BasicTestCase implements MicroTestCase {
         while(e.hasMoreElements()) {
             String header = (String) e.nextElement();
           
-            new File(header);                      /* BAD */            
+            Paths.get(header);                      /* BAD */
         }        
     }
 

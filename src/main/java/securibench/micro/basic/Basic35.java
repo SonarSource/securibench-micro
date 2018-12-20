@@ -20,7 +20,7 @@
  */
 package securibench.micro.basic;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -39,12 +39,12 @@ public class Basic35 extends BasicTestCase implements MicroTestCase {
         while(e.hasMoreElements()) {
             // I believe these can be forged also
             // TODO: double-check this
-            new File(req.getProtocol());                /* BAD */
-            new File(req.getScheme());                  /* BAD */
-            new File(req.getAuthType());                /* BAD */
-            new File(req.getQueryString());             /* BAD */
-            new File(req.getRemoteUser());              /* BAD */
-            new File(req.getRequestURL().toString());              /* BAD */
+            Paths.get(req.getProtocol());                /* BAD */
+            Paths.get(req.getScheme());                  /* BAD */
+            Paths.get(req.getAuthType());                /* BAD */
+            Paths.get(req.getQueryString());             /* BAD */
+            Paths.get(req.getRemoteUser());              /* BAD */
+            Paths.get(req.getRequestURL().toString());              /* BAD */
         }        
     }
 

@@ -21,7 +21,7 @@
  */
 package securibench.micro.pred;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
@@ -46,7 +46,7 @@ public class Pred2 extends BasicTestCase implements MicroTestCase {
         }
         
         if(choice) {
-            new File(name);              /* BAD */
+            Paths.get(name);              /* BAD */
         }
     }
 
