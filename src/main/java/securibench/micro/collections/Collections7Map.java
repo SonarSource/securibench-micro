@@ -29,10 +29,15 @@ import javax.servlet.http.HttpServletResponse;
 import securibench.micro.BasicTestCase;
 import securibench.micro.MicroTestCase;
 
+import javax.persistence.EntityManager;
+
 /** 
  *  @servlet vuln_count = "2" 
  *  */
 public class Collections7Map extends BasicTestCase implements MicroTestCase {
+
+  EntityManager em;
+
   private static final String FIELD_NAME = "name";
 
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -45,10 +50,10 @@ public class Collections7Map extends BasicTestCase implements MicroTestCase {
     m.put("c", safe);
     m.put("d", tainted);
 
-    Paths.get(m.get("a")); /* BAD */
-    Paths.get(m.get("b")); /* OK */
-    Paths.get(m.get("c")); /* OK */
-    Paths.get(m.get("d")); /* BAD */
+    em.createQuery(m.get("a")); /* BAD */
+    em.createQuery(m.get("b")); /* OK */
+    em.createQuery(m.get("c")); /* OK */
+    em.createQuery(m.get("d")); /* BAD */
   }
 
   public String getDescription() {

@@ -20,7 +20,6 @@
  */
 package securibench.micro.collections;
 
-import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
@@ -29,11 +28,16 @@ import javax.servlet.http.HttpServletResponse;
 import securibench.micro.BasicTestCase;
 import securibench.micro.MicroTestCase;
 
+import javax.persistence.EntityManager;
+
 /** 
  *  @servlet description = "collection deposit/retrieve, check for false positives" 
  *  @servlet vuln_count = "1" 
  *  */
 public class Collections2 extends BasicTestCase implements MicroTestCase {
+
+    EntityManager em;
+
     private static final String FIELD_NAME = "name";
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -47,8 +51,8 @@ public class Collections2 extends BasicTestCase implements MicroTestCase {
         String s2 = (String) ll1.getLast();
         String s3 = (String) ll2.getLast();
 
-        Paths.get(s2);                    /* BAD */
-        Paths.get(s3);                    /* OK */
+        em.createQuery(s2);                    /* BAD */
+        em.createQuery(s3);                    /* OK */
     }
     
     public String getDescription() {

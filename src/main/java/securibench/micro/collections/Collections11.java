@@ -34,6 +34,7 @@ import securibench.micro.MicroTestCase;
  *  @servlet vuln_count = "1" 
  *  */
 public class Collections11 extends BasicTestCase implements MicroTestCase {
+
     private static final String FIELD_NAME = "name";
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {

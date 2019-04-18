@@ -20,7 +20,6 @@
  */
 package securibench.micro.collections;
 
-import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
@@ -31,11 +30,16 @@ import javax.servlet.http.HttpServletResponse;
 import securibench.micro.BasicTestCase;
 import securibench.micro.MicroTestCase;
 
+import javax.persistence.EntityManager;
+
 /** 
  *  @servlet description = "collection copying through an array" 
  *  @servlet vuln_count = "1" 
  *  */
 public class Collections12 extends BasicTestCase implements MicroTestCase {
+
+    EntityManager em;
+
     private static final String FIELD_NAME = "name";
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -44,7 +48,7 @@ public class Collections12 extends BasicTestCase implements MicroTestCase {
         c1.addLast(s1);
         String[] array = (String[])c1.toArray();
 
-      	Paths.get(array[0]);                    /* BAD */
+      	em.createQuery(array[0]);                    /* BAD */
     }
     
     public String getDescription() {

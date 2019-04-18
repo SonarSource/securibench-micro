@@ -20,21 +20,25 @@
  */
 package securibench.micro.collections;
 
-import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
 
 import javax.servlet.ServletResponse;
 
+import javax.persistence.EntityManager;
+
 /** 
  *  @servlet description = "simple collection deposit/retrieve" 
  *  @servlet vuln_count = "1" 
  *  */
 class Collections11b {
+
+    EntityManager em;
+
     protected void foo(Object o, ServletResponse resp) throws IOException {
     	Collection c = (Collection) o;
         String str = (String)c.iterator().next();
-        Paths.get(str);                    /* BAD */
+        em.createQuery(str);                    /* BAD */
     }
 }

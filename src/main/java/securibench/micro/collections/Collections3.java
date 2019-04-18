@@ -20,7 +20,6 @@
  */
 package securibench.micro.collections;
 
-import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
@@ -29,11 +28,16 @@ import javax.servlet.http.HttpServletResponse;
 import securibench.micro.BasicTestCase;
 import securibench.micro.MicroTestCase;
 
+import javax.persistence.EntityManager;
+
 /** 
  *  @servlet description = "collection of collections" 
  *  @servlet vuln_count = "2" 
  *  */
 public class Collections3 extends BasicTestCase implements MicroTestCase {
+
+    EntityManager em;
+
     private static final String FIELD_NAME = "name";
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -46,9 +50,9 @@ public class Collections3 extends BasicTestCase implements MicroTestCase {
         LinkedList<String> c = (LinkedList) ll2.getLast();
         String s2 = (String) c.getLast(); 
 
-        Paths.get(s2);                    /* BAD */
+        em.createQuery(s2);                    /* BAD */
         // this is because the print out of c includes the test of s1
-        Paths.get(c.getFirst());                     /* BAD */
+        em.createQuery(c.getFirst());                     /* BAD */
     }
     
     public String getDescription() {

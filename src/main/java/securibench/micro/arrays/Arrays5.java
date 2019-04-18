@@ -21,7 +21,6 @@
  */
 package securibench.micro.arrays;
 
-import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -29,11 +28,16 @@ import javax.servlet.http.HttpServletResponse;
 import securibench.micro.BasicTestCase;
 import securibench.micro.MicroTestCase;
 
+import javax.persistence.EntityManager;
+
 /** 
  *  @servlet description = "strong updates to array elements" 
  *  @servlet vuln_count = "0" 
  *  */
 public class Arrays5 extends BasicTestCase implements MicroTestCase {
+
+    EntityManager em;
+  
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String name = req.getParameter("name");
         String[] array = new String[10];
@@ -41,7 +45,7 @@ public class Arrays5 extends BasicTestCase implements MicroTestCase {
         array[0] = name;
         array[0] = "abc";
 
-        Paths.get(array[0]);         /* OK */
+        em.createQuery(array[0]);         /* OK */
     }
     
     public String getDescription() {

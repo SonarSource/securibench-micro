@@ -20,7 +20,6 @@
  */
 package securibench.micro.collections;
 
-import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -30,11 +29,16 @@ import javax.servlet.http.HttpServletResponse;
 import securibench.micro.BasicTestCase;
 import securibench.micro.MicroTestCase;
 
+import javax.persistence.EntityManager;
+
 /** 
  *  @servlet description = "test of iterators" 
  *  @servlet vuln_count = "1" 
  *  */
 public class Collections5 extends BasicTestCase implements MicroTestCase {
+
+    EntityManager em;
+
     private static final String FIELD_NAME = "name";
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -45,7 +49,7 @@ public class Collections5 extends BasicTestCase implements MicroTestCase {
         for(Iterator<String> iter = ll.iterator(); iter.hasNext();) {
             String o = iter.next();
             
-            Paths.get(o);                    /* BAD */
+            em.createQuery(o);                    /* BAD */
         }
     }
     

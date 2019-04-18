@@ -21,7 +21,6 @@
  */
 package securibench.micro.arrays;
 
-import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
@@ -29,11 +28,16 @@ import javax.servlet.http.HttpServletResponse;
 import securibench.micro.BasicTestCase;
 import securibench.micro.MicroTestCase;
 
+import javax.persistence.EntityManager;
+
 /** 
  *  @servlet description = "a test of array indeces" 
  *  @servlet vuln_count = "1" 
  *  */
 public class Arrays4 extends BasicTestCase implements MicroTestCase {
+
+    EntityManager em;
+  
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String name = req.getParameter("name");
         int n = 15432532;
@@ -41,7 +45,7 @@ public class Arrays4 extends BasicTestCase implements MicroTestCase {
         String[] array = new String[10];        
         array[0] = name;
 
-        Paths.get(array[n-n]);         /* BAD */
+        em.createQuery(array[n-n]);         /* BAD */
     }
     
     public String getDescription() {

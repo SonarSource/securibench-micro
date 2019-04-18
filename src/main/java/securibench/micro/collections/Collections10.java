@@ -20,7 +20,6 @@
  */
 package securibench.micro.collections;
 
-import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -33,11 +32,16 @@ import javax.servlet.http.HttpServletResponse;
 import securibench.micro.BasicTestCase;
 import securibench.micro.MicroTestCase;
 
+import javax.persistence.EntityManager;
+
 /** 
  *  @servlet description = "more complex collection copying" 
  *  @servlet vuln_count = "0" 
  *  */
 public class Collections10 extends BasicTestCase implements MicroTestCase {
+
+    EntityManager em;
+
     private static final String FIELD_NAME = "name";
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -51,14 +55,14 @@ public class Collections10 extends BasicTestCase implements MicroTestCase {
         while(iter.hasNext()){
         	String str = (String) iter.next();
         	
-        	Paths.get(str);                    /* BAD */
+        	em.createQuery(str);                    /* BAD */
         }
         
         iter = c2.iterator();
         while(iter.hasNext()){
         	String str = (String) iter.next();
         	
-        	Paths.get(str);                    /* OK */
+        	em.createQuery(str);                    /* OK */
         }
     }
     
