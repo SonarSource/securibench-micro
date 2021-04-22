@@ -40,7 +40,7 @@ public class Sanitizers5 extends BasicTestCase implements MicroTestCase {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String s = req.getParameter(FIELD_NAME);
         String name = s.toLowerCase(Locale.UK);
-        String enc = URLEncoder.encode("/user/" + name, "UTF-8");
+        String enc = URLEncoder.encode("/" + name, "UTF-8");
         String dec = URLDecoder.decode(enc, "UTF-8");
 
         resp.sendRedirect(dec);     								/* BAD */

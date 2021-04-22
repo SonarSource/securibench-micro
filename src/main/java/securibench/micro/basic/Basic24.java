@@ -38,7 +38,8 @@ public class Basic24 extends BasicTestCase implements MicroTestCase {
         String s = req.getParameter(FIELD_NAME);
         String name = s.toLowerCase(Locale.UK);
 
-       resp.sendRedirect("/user/" + name);          /* BAD */
+        resp.sendRedirect("/user/" + name);         /* OK */
+        resp.sendRedirect("/" + name);              /* BAD */
     }
     
     public String getDescription() {
